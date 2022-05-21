@@ -2,8 +2,7 @@ package com.nitin;
 
 import java.util.*;
 
-public class ThreeSum :wq
-        :{
+public class ThreeSum {
 
     public static void main(String[] args) {
 
