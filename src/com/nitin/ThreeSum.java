@@ -2,11 +2,12 @@ package com.nitin;
 
 import java.util.*;
 
-public class ThreeSum {
+public class ThreeSum :wq
+        :{
 
     public static void main(String[] args) {
 
-        int lis[] = {-1,0,1,2,-1,-4,-2};
+        int lis[] = {-1,0,0,1,1,2,2,-1,-2,-2};
 
         // Ans Output: [[-2,0,2],[-1,-1,2],[-1,0,1]]
 
@@ -15,50 +16,32 @@ public class ThreeSum {
 
     public static List<List<Integer>> threeSum(int[] nums) {
 
-        List<List<Integer>> outer = new ArrayList<List<Integer>>();
-        Map<Integer,Map<Integer,Integer>> toAdd = new HashMap<Integer,Map<Integer,Integer>>();
-
-        if (nums == null || nums.length == 0 || nums.length == 1){
-            return outer;
-        }
-
+        Set<List<Integer>> res  = new HashSet<List<Integer>>();
+        if(nums.length==0) return new ArrayList<>(res);
         Arrays.sort(nums);
 
+
         for (int i : nums){
-            System.out.println("Array:" + i);
+            System.out.println("i:" + i);
         }
 
-        for (int i = 0; i < nums.length - 2; i++) {
+        for(int i=0; i<nums.length-2;i++){
+            int j =i+1;
+            int  k = nums.length-1;
+            while(j<k){
 
-            if (nums[i] > 0){
-                continue;
-            }
+                int sum =nums[j]+nums[k];
+                if(sum == -nums[i]){
 
-            int j = i +1;
-            int k = nums.length - 1;
-            while (j<k) {
-
-                if (nums[i] + nums[j] + nums[k] == 0) {
-                    List<Integer> inner = new ArrayList<Integer>();
-                    inner.add(nums[i]);
-                    inner.add(nums[j]);
-                    inner.add(nums[k]);
-                    Collections.sort(inner);
-                    if (!listExist(inner, toAdd)) {
-                        outer.add(inner);
-                    }
-                    j++;
-                    k--;
-                } else if (nums[j] + nums[k] > -nums[i]){
-                    k--;
-                } else {
-                    j++;
+                    res.add(Arrays.asList(nums[i],nums[j],nums[k]));
+                    j++; k--;
                 }
+                else if ( sum >-nums[i]) k--;
+                else if (sum<-nums[i]) j++;
             }
 
         }
-
-        return outer;
+        return new ArrayList<>(res);
     }
 
     private static boolean listExist(List<Integer> i,Map<Integer,Map<Integer,Integer>> toAdd) {
