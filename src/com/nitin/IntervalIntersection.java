@@ -8,8 +8,8 @@ public class IntervalIntersection {
 
     public static void main(String[] args) {
 
-        int f[][] =  {{3,10}};// {{0,2},{5,10},{13,23},{24,25}};
-        int s[][] =  {{5,10}};// {{1,5},{8,12},{15,24},{25,26}};
+        int f[][] =  {{3,5},{9,20}}; // {{5,10}};// {{0,2},{5,10},{13,23},{24,25}};
+        int s[][] =  {{4,5},{7,10},{11,12},{14,15},{16,20}}; // {{3,10}};// {{1,5},{8,12},{15,24},{25,26}};
         int outPut[][] =  intervalIntersection(f,s);
 
         for (int i = 0 ; i < outPut.length ; i++){
@@ -65,6 +65,20 @@ public class IntervalIntersection {
                     System.out.println("[" + sfirst + "," + esecond + "]");
                 }
 
+                //   |||||||
+                //    |||||
+                else if ( sfirst < ssecond && efirst > esecond){
+                    res.add( new int[]{ssecond,esecond});
+                    System.out.println("[" + sfirst + "," + esecond + "]");
+                }
+
+                //   |||||
+                //  ||||||
+                else if ( sfirst > ssecond && efirst == esecond ){
+                    res.add( new int[]{sfirst,esecond});
+                    System.out.println("[" + sfirst + "," + esecond + "]");
+                }
+
                 //   |||||
                 //   |||
                 else if ( sfirst == ssecond && efirst > esecond ){
@@ -77,6 +91,13 @@ public class IntervalIntersection {
                 else if ( sfirst == ssecond && efirst == esecond){
                     res.add( new int[]{sfirst,esecond});
                     System.out.println("[" + sfirst + "," + esecond + "]");
+                }
+
+                //  |||||
+                //  ||||||
+                else if ( sfirst == ssecond && efirst < esecond ){
+                    res.add( new int[]{sfirst,efirst});
+                    System.out.println("[" + sfirst + "," + efirst + "]");
                 }
 
                 //   |||||
@@ -102,7 +123,7 @@ public class IntervalIntersection {
 
                 //   |||||
                 //  |||||||
-                else if ( sfirst > ssecond && efirst < ssecond){
+                else if ( sfirst > ssecond && efirst < esecond){
                     res.add( new int[]{sfirst,efirst});
                     System.out.println("[" + sfirst + "," + efirst + "]");
                 }
