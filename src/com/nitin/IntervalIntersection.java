@@ -18,9 +18,37 @@ public class IntervalIntersection {
     }
 
 
-
-    //
+    // optimal
     public static int[][] intervalIntersection(int[][] f, int[][] s) {
+        List<int[]> res = new ArrayList();
+
+        int i = 0, j = 0;
+
+        while( i < f.length && j < s.length ){
+
+
+            int l = Math.max(f[i][0],s[j][0]);
+            int h = Math.min(f[i][1],s[j][1]);
+
+            if (l <= h){
+                res.add(new int[]{l,h});
+            }
+
+            if (f[i][1] > s[j][1]){
+                j++;
+            }else{
+                i++;
+            }
+
+        }
+
+        return res.toArray( new int[res.size()][]);
+
+    }
+
+
+    // not optimal
+    public static int[][] intervalIntersectionNotOptimal(int[][] f, int[][] s) {
 
         List<int[]> res = new ArrayList();
 
@@ -43,13 +71,6 @@ public class IntervalIntersection {
                 System.out.println("Processing second : [" + ssecond + "," + esecond + "]");
 
                 //Put the continue condition
-
-                //     |||||
-                // |||       ||||
-                if ( (sfirst > esecond && sfirst > ssecond) || (efirst < ssecond && efirst < esecond)){
-                    continue;
-                }
-
 
                 //   |||||
                 // |||
