@@ -2,6 +2,7 @@ package com.nitin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MergeInterval {
@@ -20,6 +21,35 @@ public class MergeInterval {
 
     // optimal
     public static int[][] mergeIntersection(int[][] v) {
+
+        LinkedList<int[]> res = new LinkedList<>();
+
+        // sort the array
+        Arrays.sort(v, (a, b) -> a[0] - b[0]);
+
+        for (int i = 0 ; i < v.length ; i++){
+            System.out.println(" Sorted array : [" + v[i][0] + "," + v[i][1] + "]");
+        }
+
+        for ( int j[] : v){
+
+            if ( res.isEmpty() || res.getLast()[1] < j[0]){
+                res.add(j);
+            }
+
+            else{
+
+                int last = res.getLast()[1];
+                res.getLast()[1] = Math.max(res.getLast()[1],j[1]);
+            }
+        }
+
+        return res.toArray(new int[res.size()][]);
+
+    }
+
+    // brute force
+    public static int[][] mergeIntersectionBrute(int[][] v) {
 
         List<int[]> res = new ArrayList();
 
