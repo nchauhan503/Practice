@@ -8,7 +8,7 @@ public class MergeInterval {
 
     public static void main(String[] args) {
 
-        int f[][] = {{1,10},{2,6},{1,10},{15,18}} ;// {{5,5},{1,3},{3,5},{4,6},{1,1},{3,3},{5,6},{3,3},{2,4},{0,0}}; // [[1,6],[8,10],[15,18]]
+        int f[][] = {{5,5},{1,3},{3,5},{4,6}} ;// {{5,5},{1,3},{3,5},{4,6},{1,1},{3,3},{5,6},{3,3},{2,4},{0,0}}; // [[1,6],[8,10],[15,18]]
         //  {{1,100},{2,6},{1,10},{15,18}}; // output should be : [[1,100]]
         int outPut[][] =  mergeIntersection(f);
 
@@ -37,12 +37,18 @@ public class MergeInterval {
             int currstart = v[i][0];
             int currend = v[i][1];
 
+            System.out.println("I:" + i);
+
             for (int j = i + 1 ; j < v.length ; j++){
+
+                System.out.println("J:" + j);
+                System.out.println("curr start:" + currstart);
+                System.out.println("curr end :" + currend);
 
                 // intersection condition
                 if ( currend >= v[j][0] ) {
                     currstart = v[i][0];
-                    currend = Math.max(v[i][1],v[j][1]);
+                    currend = Math.max(currend,v[j][1]);
                 }
             }
 
