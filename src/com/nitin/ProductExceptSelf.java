@@ -4,7 +4,7 @@ public class ProductExceptSelf {
 
     public static void main(String[] args) {
         // write your code here
-        int nums[] = {2,4,1};  //{2,4,1}
+        int nums[] = {1,2,3,4};  //{2,4,1}
         int sum[] = productExceptSelf(nums); // output should be 55
 
         for( int i : sum){
@@ -12,13 +12,55 @@ public class ProductExceptSelf {
         }
     }
 
+
     public static int[] productExceptSelf(int[] nums) {
 
-        int product = 1;
-
-        int forwrad[] = new int[nums.length];
+        int forward[] = new int[nums.length];
         int backward[] = new int[nums.length];
 
+
+        forward[0] = nums[0];
+
+        System.out.println("forward[0]:" + forward[0]);
+        for (int i = 1; i < nums.length ; i++){
+            forward[i] = forward[i-1] * nums[i];
+            System.out.println("forward[i]:" + forward[i]);
+        }
+
+
+        backward[nums.length - 1] = nums[nums.length - 1];
+        System.out.println("backward[3]:" + backward[nums.length - 1]);
+        for (int i = nums.length - 2 ; i >= 0 ; i--){
+            backward[i] = backward[i+1] * nums[i];
+            System.out.println("backward[i]:" + backward[i]);
+        }
+
+
+        for (int i = 0; i < nums.length ; i++){
+
+            if (i == 0){
+                nums[i] = backward[1];
+                continue;
+            }
+
+            if (i == nums.length - 1){
+                nums[i] = forward[nums.length - 2];
+                continue;
+            }
+
+            nums[i] = forward[i-1] * backward[i+1];
+
+        }
+
+
+        return nums;
+    }
+
+
+    // Not optimal, n2
+    public static int[] productExceptSelfNotOptimal(int[] nums) {
+
+        int product = 1;
 
         int isZeroed = 0;
         for (int i = 0; i < nums.length ; i++){
