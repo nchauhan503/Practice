@@ -12,6 +12,14 @@ public class IntervalIntersection {
         int s[][] =  {{4,5},{7,10},{11,12},{14,15},{16,20}}; // {{3,10}};// {{1,5},{8,12},{15,24},{25,26}};
         int outPut[][] =  intervalIntersection(f,s);
 
+        // Output
+        /*  Main : [4,5]
+            Main : [9,10]
+            Main : [11,12]
+            Main : [14,15]
+            Main : [16,20]
+        * */
+
         for (int i = 0 ; i < outPut.length ; i++){
             System.out.println("Main : [" + outPut[i][0] + "," + outPut[i][1] + "]");
         }

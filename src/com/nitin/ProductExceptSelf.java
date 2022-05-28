@@ -4,8 +4,8 @@ public class ProductExceptSelf {
 
     public static void main(String[] args) {
         // write your code here
-        int nums[] = {1,2,3,4};  //{2,4,1}
-        int sum[] = productExceptSelf(nums); // output should be 55
+        int nums[] = {1,2,3,4};  // Output : {24,12,8,6}
+        int sum[] = productExceptSelf(nums);
 
         for( int i : sum){
             System.out.println("Produt except self :" + i);

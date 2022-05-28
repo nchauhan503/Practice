@@ -4,8 +4,8 @@ public class MaxProfit {
 
     public static void main(String[] args) {
         // write your code here
-        int days[] = {2,4,1};  //{2,4,1}
-        int sum = maxProfit(days); // output should be 55
+        int days[] = {2,4,1};  // Output 2
+        int sum = maxProfit(days);
 
         System.out.println("Max sum final :" + sum);
     }

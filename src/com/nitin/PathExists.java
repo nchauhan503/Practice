@@ -7,7 +7,7 @@ public class PathExists {
     public static void main(String[] args) {
         // write your code here
         int edges[][] ={{0,1},{0,2},{3,5},{5,4},{4,3}};  // {{0,1},{0,2},{3,5},{5,4},{4,3}}   {{0,1},{1,2},{2,0},{3,2}}
-        boolean isValid =  validPath(6,edges,0,5); // output should be 55
+        boolean isValid =  validPath(6,edges,0,5);
         System.out.println("isValid:" + isValid);
     }
 

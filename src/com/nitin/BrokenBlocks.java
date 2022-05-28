@@ -5,12 +5,13 @@ public class BrokenBlocks {
 
     public static void main(String[] args) {
 
-        int lis[][] =  {{10,20,3,40}, {1,2,-1,-1}};//{{3,2,-1}, {4,-1,-1}, {-1, -1,7},{2,3,8}};// {{-1,2,3,4},{5,-1,-1,2},{4,3,-1,-1}}; //{{2,5,6},{-1,3,2},{4,-1,5}};
-        System.out.println("Maximum gold coins : " + MaxGold(lis));
+        int lis[][] =  {{10,20,3,40}, {1,2,-1,-1}}; // Output: 40
+        //{{3,2,-1}, {4,-1,-1}, {-1, -1,7},{2,3,8}};// {{-1,2,3,4},{5,-1,-1,2},{4,3,-1,-1}}; //{{2,5,6},{-1,3,2},{4,-1,5}};
+        System.out.println("Maximum gold coins : " + maxGold(lis)); //
     }
 
 
-    public static int MaxGold(int[][] seq) {
+    public static int maxGold(int[][] seq) {
         int ans = 0;
         for (int i = 0; i < seq.length; i++) {
             System.out.println("iii:" + i);

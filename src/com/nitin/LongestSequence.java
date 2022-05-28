@@ -4,8 +4,8 @@ public class LongestSequence {
 
     public static void main(String[] args) {
 
-        int lis[] = {20,5,10,55,6,10,50};
-        System.out.println("Maximum loot value : " + maxLis(lis));
+        int lis[] = {20,5,10,55,6,10,50}; // Output: 4
+        System.out.println("Longest Subsequence count : " + maxLis(lis));
 
     }
 

@@ -6,14 +6,8 @@ public class RobberHouse {
 
     public static void main(String[] args) {
 	// write your code here
-        int houses[] = {20,5,10,55,6,10,50};  //,6,10,50
-        int sum = maxRobbery(houses); // output should be 55
-
-        System.out.println("Max sum final :" + sum);
-
-
-        int hval[] = {20,5,10,55,6,10,50};
-        System.out.println("Maximum loot value : " + maxLoot(hval));
+        int houses[] = {20,5,10,55,6,10,50}; // Output 125
+        System.out.println("Maximum loot value : " + maxLoot(houses));
 
     }
 
