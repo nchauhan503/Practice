@@ -23,22 +23,17 @@ public class MaxSubArray {
             return nums[0];
         }
 
-        int maxSum = Integer.MIN_VALUE;
         int sum = nums[0];
-        //int max = Math.max(Integer.MIN_VALUE,nums[0]);
-
 
         for (int i = 1; i < nums.length; i++){
 
-            if (sum + nums[i] < sum){
-                sum = nums[i];
-            } else {
-                sum += nums[i];
+            if (nums[i-1] > 0){
+                nums[i] = nums[i-1] + nums[i];
             }
-            maxSum = Math.max(sum,maxSum);
+            sum = Math.max(sum,nums[i]);
 
         }
-        return maxSum;
+        return sum;
     }
 
 
