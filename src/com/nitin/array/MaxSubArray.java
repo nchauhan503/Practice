@@ -1,4 +1,4 @@
-package com.nitin;
+package com.nitin.array;
 
 public class MaxSubArray {
 
