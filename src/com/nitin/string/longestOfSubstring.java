@@ -27,7 +27,6 @@ public class longestOfSubstring {
             return 0;
         }
 
-
         for (int j = 0; j < s.length(); j++){
             cc = new HashSet<Character>();
             cc.add(s.charAt(j));
@@ -39,11 +38,11 @@ public class longestOfSubstring {
                 cc.add(c);
                 max = Math.max(max, cc.size());
             }
-
         }
 
         return Math.max(max,cc.size());
     }
+
 
     public static  int lengthOfLongestSubstringBrute(String s) {
 

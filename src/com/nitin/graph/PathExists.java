@@ -1,4 +1,4 @@
-package com.nitin.array;
+package com.nitin.graph;
 
 import java.util.*;
 
