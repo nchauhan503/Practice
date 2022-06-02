@@ -83,17 +83,13 @@ public class MergeKList {
         ListNode dummy = d;
 
         for (ListNode l : lists){
-            System.out.println("iterate");
-            dummy = mergeTwoLists(dummy,l);
-            dummy = dummy.next;
-            while (dummy != null) {
-
-                System.out.println("mergeListResult: " + dummy.val);
-                dummy = dummy.next;
-            }
+            ListNode result = mergeTwoLists(dummy.next,l);
+            //dummy = dummy.next;
+            dummy = new ListNode(0);
+            dummy.next = result;
         }
 
-        return dummy;
+        return dummy.next;
 
     }
 
@@ -121,16 +117,13 @@ public class MergeKList {
             }
             dummy = dummy.next;
         }
-
         if ( a != null){
             dummy.next = a;
         }
-
         if ( b != null){
             dummy.next = b;
 
         }
-
         return d.next;
     }
 
