@@ -11,8 +11,8 @@ public class MinimumWindowSubstring {
         //String s = "ADOBECODEBANC"; String t = "ABC"; // Output: "BANC"
         //String s = "a"; String t = "aa"; // Output: ""
         //String s = "a"; String t = "a"; // Output : "a"
-        //String s = "a"; String t = "b"; // Output : ""
-        String s = "aa"; String t = "aa"; // Output : "aa"
+        String s = "a"; String t = "b"; // Output : ""
+        //String s = "aa"; String t = "aa"; // Output : "aa"
         String output = minWindow(s,t);
         System.out.println("MinWindow substring: " + output);
     }
@@ -26,14 +26,14 @@ public class MinimumWindowSubstring {
         Map<Character,Integer> c = new HashMap<>();
         createMap(t,c);
 
-        int start = -1;
-        int end = -1;
+        int start = 0;
+        int end = 0;
         int left = 0;
         int right = t.length() - 1;
 
-        if (left == right && s.contains(t) ){
+        /*if (left == right && s.contains(t) ){
             return t;
-        }
+        }*/
 
         Map<Character,Integer> tracker = new HashMap<>();
         createMap(s.substring(left,right + 1),tracker);
@@ -76,11 +76,9 @@ public class MinimumWindowSubstring {
             }
         }
 
-        if (start >= 0 && end>= 0) {
-            return s.substring(start, end + 1);
-        }else{
-            return "";
-        }
+
+        return s.substring(start, end + 1);
+
     }
 
     private static boolean isValidSubstring (String sub, Map<Character,Integer> tracker, Map<Character,Integer> c) {
