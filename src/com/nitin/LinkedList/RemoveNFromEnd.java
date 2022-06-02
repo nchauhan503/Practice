@@ -2,19 +2,19 @@ package com.nitin.LinkedList;
 
 public class RemoveNFromEnd {
 
-    public static class ListNode {
+    public static class ListNodeR {
         int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        ListNodeR next;
+        ListNodeR() {}
+        ListNodeR(int val) { this.val = val; }
+        ListNodeR(int val, ListNodeR next) { this.val = val; this.next = next; }
     }
 
     public static void main(String[] args) {
 
         //Create the listNode
-        ListNode first = new ListNode(1);
-        ListNode second = new ListNode(2);
+        ListNodeR first = new ListNodeR(1);
+        ListNodeR second = new ListNodeR(2);
         //ListNode third = new ListNode(3);
         //ListNode fourth = new ListNode(4);
         //ListNode fifth = new ListNode(5);
@@ -26,7 +26,7 @@ public class RemoveNFromEnd {
         //fourth.next = fifth;
 
 
-        ListNode output = removeNthFromEnd(first,2);
+        ListNodeR output = removeNthFromEnd(first,2);
 
         while (output != null) {
 
@@ -36,7 +36,7 @@ public class RemoveNFromEnd {
 
     }
 
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static ListNodeR removeNthFromEnd(ListNodeR head, int n) {
 
         if (head == null){ return head; }
 
@@ -44,8 +44,8 @@ public class RemoveNFromEnd {
             return null;
         }
 
-        ListNode fast = head;
-        ListNode slow = head;
+        ListNodeR fast = head;
+        ListNodeR slow = head;
 
 
         //move the fast one n times
@@ -66,7 +66,7 @@ public class RemoveNFromEnd {
         return head;
     }
 
-    public static ListNode removeNthFromEndBrute(ListNode head, int n) {
+    public static ListNodeR removeNthFromEndBrute(ListNodeR head, int n) {
 
         if (head == null){
             return head;
@@ -75,7 +75,7 @@ public class RemoveNFromEnd {
         // total count tracker
         int count = 0;
 
-        ListNode c = head;
+        ListNodeR c = head;
         // get the total count
         while (c != null){
             count++;
@@ -93,14 +93,14 @@ public class RemoveNFromEnd {
             return head.next;
         }
 
-        ListNode update = head;
+        ListNodeR update = head;
         while (targetElement > 0){
 
 
             // we hit the desired spot where we need to do the deletion
             if (targetElement == 1){
 
-                ListNode temp = null;
+                ListNodeR temp = null;
 
                 // this checks for making sure we do not go beyond the end of the list
                 if (update.next != null){
