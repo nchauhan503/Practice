@@ -1,4 +1,4 @@
-package com.nitin.LinkedList;
+package com.nitin.linkedList;
 
 public class RemoveNFromEnd {
 
