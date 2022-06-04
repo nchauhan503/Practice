@@ -22,7 +22,6 @@ public class SetZeroes {
 
 
     public static void setZeroes(int[][] lis) {
-
         int row = 1;
         int col = 1;
 
@@ -38,7 +37,6 @@ public class SetZeroes {
             }
         }
 
-
         for ( int i = 1; i < lis.length; i++){
             for ( int j = 1; j < lis[i].length; j++){
 
@@ -49,7 +47,6 @@ public class SetZeroes {
             }
         }
 
-
         // updating the matrix from (1-len) (1-len) to 0 based on flag
         for ( int i = 1; i < lis.length; i++){
             for ( int j = 1; j < lis[i].length; j++){
@@ -59,7 +56,6 @@ public class SetZeroes {
                 }
             }
         }
-
 
         // updating all the 0th row to 0
         if ( row == 0) {
@@ -74,9 +70,6 @@ public class SetZeroes {
                 lis[0][i] = 0;
             }
         }
-
-
-        System.out.println("");
     }
 
 
