@@ -26,10 +26,7 @@ public class ReorderList {
         fourth.next = fifth;
         fifth.next = sixth;
 
-
         reorderList(first);
-
-
     }
 
     public static void reorderList(ListNodeO head) {
@@ -44,35 +41,41 @@ public class ReorderList {
             slow = slow.next;
             fast = fast.next.next;
         }
-
         prev.next = null;
 
         // After the while loop is done: l1 is the first half | slow is the second half
-
         ListNodeO l2 = reverseList(slow);
 
         mergeList(l1,l2,head);
+    }
 
+    private static ListNodeO reverseList(ListNodeO head) {
+        ListNodeO prev = null;
+        ListNodeO curr = head;
+        ListNodeO next = null;
+
+        while (curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
     }
 
     private static void mergeList(ListNodeO l1, ListNodeO l2,ListNodeO head) {
-
         while ( l1 != null) {
             ListNodeO l1_next = l1.next;
             ListNodeO l2_next = l2.next;
 
             l1.next = l2;
 
-            if ( l1_next == null){
-                break;
-            }
+            if ( l1_next == null){ break; }
 
             l2.next = l1_next;
             l1 = l1_next;
             l2 = l2_next;
         }
-
-
     }
 
     private static ListNodeO mergeListSpace(ListNodeO l1, ListNodeO l2) {
@@ -104,21 +107,5 @@ public class ReorderList {
         }
 
         return dummy.next;
-    }
-
-    private static ListNodeO reverseList(ListNodeO head) {
-
-        ListNodeO prev = null;
-        ListNodeO curr = head;
-        ListNodeO next = null;
-
-        while (curr != null){
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-
-        return prev;
     }
 }
