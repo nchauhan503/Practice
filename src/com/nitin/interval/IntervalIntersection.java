@@ -1,4 +1,4 @@
-package com.nitin.array;
+package com.nitin.interval;
 
 import java.util.ArrayList;
 import java.util.List;
