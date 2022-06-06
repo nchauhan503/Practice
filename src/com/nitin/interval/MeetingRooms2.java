@@ -8,7 +8,7 @@ public class MeetingRooms2 {
 
         //int schedule[][] =  {{0,30},{5,10},{7,40},{40,50}};  // Output : false
 
-        int schedule[][] = {{7,10},{2,4}}; // Output : true
+        int schedule[][] = {{7,10},{1,4},{1,2},{10,11}, {1,5}}; // Output : true
 
         int m =  meetingRoom(schedule);
 
