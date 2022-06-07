@@ -6,13 +6,15 @@ public class MirrorImage {
 
 
         TreeNode root = new TreeNode(10);
-        TreeNode left = new TreeNode(11);
-        TreeNode leftt = new TreeNode(12);
-        TreeNode right = new TreeNode(13);
+        TreeNode left = new TreeNode(9);
+        TreeNode left_left = new TreeNode(8);
+        TreeNode right = new TreeNode(12);
+        TreeNode right_left = new TreeNode(11);
 
         root.left = left;
         root.right = right;
-        left.left = leftt;
+        left.left = left_left;
+        right.left = right_left;
 
         TreeNode m = invertTree(root);
 
