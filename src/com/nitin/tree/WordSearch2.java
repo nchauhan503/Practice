@@ -28,7 +28,15 @@ public class WordSearch2 {
 
         Trie root = new Trie();
         char[][] board = {{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
-        String[] words = {"oath","pea","eat","rain"};
+        String[] words = {"hklf","hf"};
+        //String[] words = {"oath","pea","eat","rain"};
+
+        //char[][] board = {{'a'}};
+        //String[] words = {"a"};
+
+        //char[][] board = {{'o','a','b','n'},{'o','t','a','e'},{'a','h','k','r'},{'a','f','l','v'}};
+        //String[] words = {"oa","oaa"};
+
         // Output : ["eat","oath"]
         List<String> lis = findWords(board,words,root);
 
@@ -50,6 +58,7 @@ public class WordSearch2 {
             for ( int j = 0; j < board[i].length; j++){
                 System.out.println("i:" + i + " j:" + j + " value:" + board[i][j]);
                 if (root.tries.containsKey( board[i][j])){
+                    System.out.println("found");
                     StringBuilder sb = new StringBuilder();
                     boolean[][] visited = new boolean[board.length][board[0].length];
                     dfs(board,i,j,root,sb,visited,res);
@@ -62,22 +71,22 @@ public class WordSearch2 {
     private static void dfs(char[][] board, int i, int j, Trie node, StringBuilder sb,boolean[][] visited,List<String> res) {
 
         // check for bounds and visited
-        if (i < board.length - 1 && i >= 0 && j < board[i].length && j >= 0
+        if (i <= board.length - 1 && i >= 0 && j <= board[i].length - 1 && j >= 0
                 && node.tries.containsKey(board[i][j]) &&  !visited[i][j] ){
 
             node = node.tries.get(board[i][j]);
             visited[i][j] = true;
             sb.append(board[i][j]);
             if (node.isEnd){
-
+                node.isEnd = false;
                 res.add(sb.toString());
-                return;
             }
             dfs(board,i+1,j,node,sb,visited,res);
             dfs(board,i-1,j,node,sb,visited,res);
             dfs(board,i,j+1,node,sb,visited,res);
             dfs(board,i,j-1,node,sb,visited,res);
-
+            sb.deleteCharAt(sb.length() - 1);
+            visited[i][j] = false;
         }
     }
 
@@ -86,6 +95,5 @@ public class WordSearch2 {
         for (String s : words){
             root.insert(s);
         }
-
     }
 }
